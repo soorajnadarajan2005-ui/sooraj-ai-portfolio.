@@ -7,12 +7,16 @@ const sectionLight: Record<string, [string, string]> = {
   about: ["rgba(94, 135, 190, .07)", "rgba(116, 131, 173, .035)"],
   projects: ["rgba(57, 111, 213, .085)", "rgba(135, 91, 201, .06)"],
   workflow: ["rgba(90, 135, 201, .07)", "rgba(107, 108, 188, .04)"],
-  skills: ["rgba(59, 116, 208, .075)", "rgba(122, 99, 197, .045)"],
+  expertise: ["rgba(59, 116, 208, .075)", "rgba(122, 99, 197, .045)"],
+  experience: ["rgba(90, 135, 201, .07)", "rgba(107, 108, 188, .04)"],
+  education: ["rgba(90, 135, 201, .07)", "rgba(107, 108, 188, .04)"],
+  github: ["rgba(59, 116, 208, .075)", "rgba(122, 99, 197, .045)"],
+  resume: ["rgba(59, 116, 208, .075)", "rgba(122, 99, 197, .045)"],
   dashboard: ["rgba(60, 128, 231, .095)", "rgba(88, 105, 199, .055)"],
   contact: ["rgba(190, 204, 231, .07)", "rgba(91, 129, 200, .045)"],
 };
 
-const lightTargets = ".project-visual, .ai-core, .hero-name, .hero-link, .terminal-panel, .main-nav-link, .ai-assistant-button";
+const lightTargets = ".project-visual, .hero-link, .terminal-panel, .main-nav-link, .ai-assistant-button";
 
 export function GlobalLighting() {
   useEffect(() => {
@@ -20,13 +24,10 @@ export function GlobalLighting() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     let activeTarget: HTMLElement | null = null;
-    let activeLetter: HTMLElement | null = null;
 
     function handlePointerMove(event: PointerEvent) {
       root.style.setProperty("--pointer-x", `${event.clientX}px`);
       root.style.setProperty("--pointer-y", `${event.clientY}px`);
-      root.style.setProperty("--depth-x", `${(window.innerWidth * 0.5 - event.clientX) * 0.012}px`);
-      root.style.setProperty("--depth-y", `${(window.innerHeight * 0.36 - event.clientY) * 0.012}px`);
       root.style.setProperty("--spotlight-opacity", "1");
 
       const target = event.target instanceof Element ? event.target.closest<HTMLElement>(lightTargets) : null;
@@ -40,20 +41,12 @@ export function GlobalLighting() {
         target.style.setProperty("--local-x", `${event.clientX - bounds.left}px`);
         target.style.setProperty("--local-y", `${event.clientY - bounds.top}px`);
       }
-      const letter = event.target instanceof Element ? event.target.closest<HTMLElement>(".hero-letter") : null;
-      if (letter !== activeLetter) {
-        activeLetter?.classList.remove("is-name-lit");
-        activeLetter = letter;
-        activeLetter?.classList.add("is-name-lit");
-      }
     }
 
     function handlePointerLeave() {
       root.style.setProperty("--spotlight-opacity", "0");
       activeTarget?.classList.remove("has-pointer-light");
       activeTarget = null;
-      activeLetter?.classList.remove("is-name-lit");
-      activeLetter = null;
     }
 
     if (finePointer && !reducedMotion) {
@@ -83,8 +76,7 @@ export function GlobalLighting() {
       window.removeEventListener("pointerleave", handlePointerLeave);
       window.removeEventListener("blur", handlePointerLeave);
       activeTarget?.classList.remove("has-pointer-light");
-      activeLetter?.classList.remove("is-name-lit");
-      ["--pointer-x", "--pointer-y", "--depth-x", "--depth-y", "--spotlight-opacity", "--ambient-primary", "--ambient-secondary"].forEach(property => root.style.removeProperty(property));
+      ["--pointer-x", "--pointer-y", "--spotlight-opacity", "--ambient-primary", "--ambient-secondary"].forEach(property => root.style.removeProperty(property));
     };
   }, []);
 

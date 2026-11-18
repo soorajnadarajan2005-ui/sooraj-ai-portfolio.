@@ -11,6 +11,9 @@ const suggestions = [
   "What technologies does Sooraj use?",
   "Tell me about FallEye.",
   "Tell me about DocuMind.",
+  "Tell me about NEXUS CRM.",
+  "What did Sooraj study?",
+  "Tell me about Sooraj's experience.",
   "How can I contact Sooraj?",
 ];
 
@@ -18,7 +21,7 @@ function answerQuestion(question: string) {
   const text = question.toLowerCase();
 
   if (/contact|email|reach/.test(text)) {
-    return "You can reach Sooraj at soorajnadarajan@gmail.com. His GitHub profile is github.com/soorajnadarajan2005-ui.";
+    return "You can email Sooraj at soorajnadarajan@gmail.com, connect on LinkedIn at linkedin.com/in/sooraj-nadarajan-8510273b3, or visit github.com/soorajnadarajan2005-ui.";
   }
   if (/falleye|fall detection|elder/.test(text)) {
     return "FallEye is a vision-based elderly fall detection system concept using Python, OpenCV, MediaPipe and Flask. It is designed to detect potential falls and surface alerts through a safety dashboard. No model accuracy figures are claimed.";
@@ -26,19 +29,25 @@ function answerQuestion(question: string) {
   if (/documind|pdf|rag|document/.test(text)) {
     return "DocuMind is a FastAPI-based PDF intelligence application. It extracts document text, chunks it, creates embeddings, searches with FAISS and uses retrieved context to ground answers.";
   }
-  if (/mobile|price predictor|price range/.test(text)) {
-    return "Mobile Price Predictor is a machine-learning web application that estimates mobile phone price ranges from device specifications, using Python, Pandas, Scikit-learn and Streamlit.";
+  if (/nexus|crm|customer relationship|ticket routing|sales lead/.test(text)) {
+    return "The supplied NEXUS CRM brief describes a full-stack customer relationship platform with sales lead tracking, automated ticket routing, role-based dashboards, real-time notifications and administrative reporting. The source repository is not included here for verification.";
+  }
+  if (/education|study|degree|university|college/.test(text)) {
+    return "Sooraj completed a BSc in Information Technology through MG University in 2026 at Siena College of Professional Studies, Edakochi.";
+  }
+  if (/experience|intern|employment|work history/.test(text)) {
+    return "Sooraj's listed experience is as an AI/ML Engineering Intern at Linnk Academy India. Dates and responsibilities have not been provided.";
   }
   if (/project|built|portfolio/.test(text)) {
-    return "The portfolio features FallEye, a vision-based fall detection system; DocuMind, a PDF question-answering RAG application; and Mobile Price Predictor, a device-specification price-range app. Open Projects for the case studies.";
+    return "The portfolio features FallEye, a vision-based fall detection system; DocuMind, a document intelligence RAG application; and NEXUS CRM, a customer relationship and operations platform. Open Projects for the case studies.";
   }
   if (/skill|technolog|tool|stack/.test(text)) {
-    return "Sooraj works with Python, JavaScript, TypeScript, Scikit-learn, Pandas, NumPy, RAG, embeddings, vector search, FastAPI, Flask, Streamlit, Next.js, Git and Vercel.";
+    return "Sooraj works with Python, JavaScript, TypeScript, Scikit-learn, Pandas, NumPy, RAG, embeddings, FAISS, FastAPI, Flask, React, PostgreSQL, Supabase, SQLAlchemy, Socket.IO, Docker and Git.";
   }
   if (/sooraj|about|engineer/.test(text)) {
-    return "Sooraj Nadarajan is a BSc IT graduate building a career around AI and machine learning, with a focus on practical systems that connect data, intelligent models and real-world applications.";
+    return "Sooraj Nadarajan is an AI/ML Engineer with an Information Technology background, focused on practical applications using machine learning, generative AI, LLMs, RAG and backend technologies.";
   }
-  return "I can answer questions about Sooraj, his projects, technologies or contact details. Try one of the suggested questions, or explore the matching section on this page.";
+  return "I can answer questions about Sooraj's background, education, experience, projects, technologies and contact details. These are predefined portfolio answers, not LLM-generated responses.";
 }
 
 export function AiAssistant() {
@@ -74,7 +83,7 @@ export function AiAssistant() {
           <header className="flex items-center justify-between border-b border-[var(--border)] bg-[var(--surface)] px-4 py-3.5">
             <div className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--accent)]/10 text-[var(--accent)]"><Sparkles size={17} /></span>
-              <div><h2 className="text-sm font-semibold">Ask Sooraj AI</h2><p className="text-[11px] muted">Portfolio assistant</p></div>
+              <div><h2 className="text-sm font-semibold">Ask Sooraj AI</h2><p className="text-[11px] muted">Portfolio answers · No LLM connected</p></div>
             </div>
             <button type="button" onClick={() => setOpen(false)} aria-label="Close assistant" className="rounded-lg p-2 muted hover:text-[var(--foreground)]"><X size={16} /></button>
           </header>

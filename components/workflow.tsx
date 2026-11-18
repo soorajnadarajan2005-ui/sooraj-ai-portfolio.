@@ -3,13 +3,14 @@
 import { motion } from "motion/react";
 
 const steps = [
-  { title: "Problem", text: "Define the question, the context and what a useful outcome means." },
-  { title: "Data", text: "Inspect, prepare and understand the information available." },
-  { title: "Experiment", text: "Explore patterns, assumptions and a sensible baseline." },
-  { title: "Model", text: "Choose an approach that fits the task and available data." },
-  { title: "Evaluation", text: "Test behavior against the objective and refine where needed." },
-  { title: "Application", text: "Turn the result into a usable product or workflow." },
-  { title: "Deployment", text: "Package and deliver the system for real use." },
+  { title: "Problem definition", text: "Clarify the user need, constraints, and what success would mean." },
+  { title: "Data collection", text: "Identify appropriate data and its source before drawing conclusions." },
+  { title: "Data preparation", text: "Inspect, clean, and prepare the available information." },
+  { title: "Model development", text: "Build a baseline and choose an approach suited to the task." },
+  { title: "Model evaluation", text: "Test against the objective and report measured results honestly." },
+  { title: "Backend integration", text: "Connect model behavior to reliable APIs and application workflows." },
+  { title: "Deployment", text: "Package and deliver the application for its intended environment." },
+  { title: "Monitoring & improvement", text: "Observe behavior and refine the system as needs and evidence evolve." },
 ];
 
 export function Workflow() {
@@ -17,9 +18,9 @@ export function Workflow() {
     <>
       <section id="workflow" className="section">
         <div className="mb-11 max-w-2xl">
-          <p className="section-kicker">03 / Method</p>
-          <h2 className="section-title mt-4 text-4xl sm:text-5xl">How I think.</h2>
-          <p className="muted mt-4 leading-7">A practical path from a clear question to a useful, evaluated application.</p>
+          <p className="section-kicker">04 / Engineering workflow</p>
+          <h2 className="section-title mt-4 text-4xl sm:text-5xl">How I build AI systems.</h2>
+          <p className="muted mt-4 leading-7">A practical path from a well-framed problem to a deployed system that can be evaluated and improved.</p>
         </div>
         <ol className="thinking-list">
           {steps.map((step, index) => {

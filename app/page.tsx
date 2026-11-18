@@ -5,6 +5,8 @@ import { AiDashboard } from "@/components/ai-dashboard";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
 import { Workflow } from "@/components/workflow";
+import { Experience } from "@/components/experience";
+import { Education } from "@/components/education";
 import { GithubSection } from "@/components/github-section";
 import { ResumeCta } from "@/components/resume-cta";
 import { Contact } from "@/components/contact";
@@ -20,9 +22,11 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Skills />
         <Projects />
         <Workflow />
-        <Skills />
+        <Experience />
+        <Education />
         <GithubSection />
         <AiDashboard />
         <ResumeCta />

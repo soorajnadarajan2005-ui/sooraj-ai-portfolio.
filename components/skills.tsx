@@ -2,20 +2,20 @@
 import { motion } from "motion/react";
 
 const groups = [
-  { title: "Programming / Vision", skills: ["Python", "OpenCV", "MediaPipe", "JavaScript", "TypeScript", "HTML", "CSS"] },
-  { title: "Machine learning", skills: ["Scikit-learn", "Regression", "Classification", "Model Evaluation"] },
-  { title: "Data", skills: ["Pandas", "NumPy", "Matplotlib"] },
-  { title: "AI / RAG", skills: ["RAG", "Embeddings", "FAISS", "Vector Search", "PDF Processing", "LLM Applications"] },
-  { title: "Backend", skills: ["FastAPI", "Flask"] },
-  { title: "Deployment / Tools", skills: ["Git", "GitHub", "Streamlit", "Next.js", "Vercel"] }
+  { title: "Programming", skills: ["Python", "JavaScript", "TypeScript"] },
+  { title: "Machine learning & data", skills: ["Scikit-learn", "Pandas", "NumPy", "Matplotlib", "Classification", "Regression", "Model Evaluation"] },
+  { title: "Generative AI & NLP", skills: ["LLMs", "RAG", "Embeddings", "FAISS", "Vector Search", "NLP"] },
+  { title: "Backend & APIs", skills: ["FastAPI", "Flask", "REST APIs", "SQLAlchemy", "Socket.IO", "JWT"] },
+  { title: "Databases", skills: ["PostgreSQL", "Supabase"] },
+  { title: "Frontend & delivery", skills: ["React", "Tailwind CSS", "Docker", "Git", "GitHub", "Streamlit", "Next.js", "Vercel"] }
 ];
 
 export function Skills() {
-  return <section id="skills" className="section">
+  return <section id="expertise" className="section">
     <div className="mb-10 max-w-3xl">
-      <p className="section-kicker">04 / The tools behind the work</p>
-      <h2 className="section-title mt-4 text-4xl sm:text-5xl">A system, not a checklist.</h2>
-      <p className="muted mt-4 max-w-xl leading-7">Explore the tools used across the projects. Focus a technology to see where it appears in the work.</p>
+      <p className="section-kicker">02 / Technical expertise</p>
+      <h2 className="section-title mt-4 text-4xl sm:text-5xl">Tools for useful systems.</h2>
+      <p className="muted mt-4 max-w-xl leading-7">A categorized view of the technologies used across my projects. Focus a technology to see where it appears in the work.</p>
     </div>
     <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.55 }} className="tool-groups">
       {groups.map(group => (
