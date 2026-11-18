@@ -21,7 +21,6 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("top");
   const pathname = usePathname();
-  const systemStatus = active === "projects" ? "BUILD MODE" : active === "contact" || active === "resume" ? "READY" : "ONLINE";
   const sectionHref = (href: string) => pathname === "/" ? href : `/${href}`;
 
   useEffect(() => {
@@ -56,7 +55,6 @@ export function Navbar() {
               {label}
             </a>
           ))}
-          <span className="system-status">SYSTEM {systemStatus}</span>
         </div>
 
         <div className="flex items-center gap-2 xl:hidden">
@@ -69,7 +67,6 @@ export function Navbar() {
       <AnimatePresence>
         {open && <motion.div id="mobile-navigation" initial={{ opacity: 0, y: -8, height: 0 }} animate={{ opacity: 1, y: 0, height: "auto" }} exit={{ opacity: 0, y: -8, height: 0 }} transition={{ duration: 0.2 }} className="mx-auto max-w-[1160px] border-b border-[var(--border)] bg-[var(--background)] pb-3 xl:hidden">
           {links.map(({ label, href }) => <a key={href} href={sectionHref(href)} onClick={() => { setOpen(false); setActive(href.slice(1)); }} aria-current={active === href.slice(1) ? "location" : undefined} className={`flex min-h-11 items-center border-b border-[var(--border)] text-xs uppercase tracking-[.08em] transition ${active === href.slice(1) ? "text-[var(--foreground)]" : "muted hover:text-[var(--foreground)]"}`}>{label}</a>)}
-          <p className="system-status mt-4">SYSTEM {systemStatus}</p>
         </motion.div>}
       </AnimatePresence>
     </header>

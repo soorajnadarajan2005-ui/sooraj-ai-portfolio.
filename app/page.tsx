@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
-import { AiDashboard } from "@/components/ai-dashboard";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
 import { Workflow } from "@/components/workflow";
@@ -28,7 +27,6 @@ export default function Home() {
         <Experience />
         <Education />
         <GithubSection />
-        <AiDashboard />
         <ResumeCta />
         <Contact />
       </main>

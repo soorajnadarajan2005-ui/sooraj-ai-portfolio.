@@ -53,6 +53,17 @@ export function Projects() {
                 href={`/projects/${project.slug}`}
                 aria-label={`View ${project.title} case study`}
                 className={`project-visual project-visual-${project.slug}`}
+                onMouseMove={(event) => {
+                  const bounds = event.currentTarget.getBoundingClientRect();
+                  event.currentTarget.style.setProperty("--tilt-x", `${((event.clientY - bounds.top) / bounds.height - 0.5) * -4}deg`);
+                  event.currentTarget.style.setProperty("--tilt-y", `${((event.clientX - bounds.left) / bounds.width - 0.5) * 5}deg`);
+                  event.currentTarget.style.setProperty("--local-x", `${event.clientX - bounds.left}px`);
+                  event.currentTarget.style.setProperty("--local-y", `${event.clientY - bounds.top}px`);
+                }}
+                onMouseLeave={(event) => {
+                  event.currentTarget.style.setProperty("--tilt-x", "0deg");
+                  event.currentTarget.style.setProperty("--tilt-y", "0deg");
+                }}
               >
                 <ProjectVisual project={project} />
               </a>
@@ -90,12 +101,40 @@ export function Projects() {
 function ProjectVisual({ project }: { project: Project }) {
   if (project.image) {
     return (
-      <img
-        className="project-media-image"
-        src={project.image}
-        alt={`${project.title} project preview`}
-        loading="eager"
-      />
+      <div className={`project-media-wrap project-media-${project.slug}`}>
+        <img
+          className="project-media-image"
+          src={project.image}
+          alt={`${project.title} project preview`}
+          loading="eager"
+        />
+        {project.slug === "falleye" && (
+          <div className="technical-overlay falleye-overlay" aria-hidden="true">
+            <span className="scan-line" />
+            <span className="pose-point point-one" />
+            <span className="pose-point point-two" />
+            <span className="pose-point point-three" />
+            <span className="vision-status">POSE TRACKING</span>
+          </div>
+        )}
+        {project.slug === "documind" && (
+          <div className="technical-overlay documind-overlay" aria-hidden="true">
+            <span className="doc-chip chip-one">TEXT</span>
+            <span className="doc-chip chip-two">CHUNK</span>
+            <span className="doc-chip chip-three">VECTOR</span>
+            <span className="retrieval-pulse" />
+          </div>
+        )}
+        {project.slug === "nexus-crm" && (
+          <div className="technical-overlay nexus-overlay" aria-hidden="true">
+            <span className="crm-node crm-node-one" />
+            <span className="crm-node crm-node-two" />
+            <span className="crm-node crm-node-three" />
+            <span className="crm-flow" />
+            <span className="crm-status">WORKFLOW</span>
+          </div>
+        )}
+      </div>
     );
   }
 

@@ -16,7 +16,7 @@ const sectionLight: Record<string, [string, string]> = {
   contact: ["rgba(190, 204, 231, .07)", "rgba(91, 129, 200, .045)"],
 };
 
-const lightTargets = ".project-visual, .hero-link, .terminal-panel, .main-nav-link, .ai-assistant-button";
+const lightTargets = ".project-visual, .hero-link, .main-nav-link, .ai-assistant-button";
 
 export function GlobalLighting() {
   useEffect(() => {

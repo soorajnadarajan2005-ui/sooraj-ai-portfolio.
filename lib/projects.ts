@@ -35,6 +35,7 @@ export const projects: Project[] = [
     tags: ["Python", "Flask", "OpenCV", "MediaPipe", "Computer Vision"],
     architecture: ["Camera input", "Pose landmarks", "Fall detection", "Dashboard alert"],
     image: "/project-media/falleye.png",
+    githubUrl: "https://github.com/soorajnadarajan2005-ui/Fall_Eye-Elderly-Fall-Detection-System.git",
     problem:
       "A potential fall may go unnoticed when an older adult is alone and unable to call for help.",
     objective:
@@ -59,6 +60,7 @@ export const projects: Project[] = [
       "A PDF question-answering application that uses retrieved document context to ground generated answers.",
     tags: ["Python", "FastAPI", "RAG", "Embeddings", "FAISS", "LLMs"],
     image: "/project-media/documind.png",
+    githubUrl: "https://github.com/soorajnadarajan2005-ui/DocuMind-.git",
     architecture: [
       "PDF upload",
       "Text extraction",
@@ -103,6 +105,7 @@ export const projects: Project[] = [
       "Docker",
     ],
     image: "/project-media/nexus-crm.png",
+    githubUrl: "https://github.com/soorajnadarajan2005-ui/NEXUS-CRM.git",
     architecture: [
       "React dashboards",
       "Flask REST APIs",
