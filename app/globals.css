@@ -482,6 +482,7 @@ a { color: inherit; text-decoration: none; }
 .project-visual-falleye { --project-light: rgba(48, 139, 255, .22); background: #111a25; }
 .project-visual-documind { --project-light: rgba(153, 104, 239, .2); background: #191525; }
 .project-visual-mobile { --project-light: rgba(50, 184, 222, .19); background: #112027; }
+.project-visual-crm { --project-light: rgba(201, 237, 118, .18); background: #172019; }
 .project-visual.has-pointer-light .vision-frame { animation: detection-pulse .7s ease-out 1; }
 .project-visual.has-pointer-light .flow-node { border-color: rgba(167, 190, 245, .38); transition: border-color .25s ease, background .25s ease; }
 .project-visual-documind.has-pointer-light .flow-node { animation: retrieval-flow .85s ease-out both; }

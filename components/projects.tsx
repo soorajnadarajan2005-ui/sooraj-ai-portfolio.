@@ -105,6 +105,21 @@ const projects: Project[] = [
     development: "Uses a Python data workflow with Pandas and Scikit-learn, presented through Streamlit.",
     result: "A web application that accepts device specifications and returns a predicted price range.",
     future: "Document the training data, compare model baselines and evaluate predictions on held-out data."
+  },
+  {
+    number: "04",
+    title: "NEXUS CRM",
+    subtitle: "Customer Relationship & Operations Management Platform",
+    description: "A full-stack CRM platform that centralizes customer interactions, sales lead management, support ticket tracking and business operations.",
+    tags: ["React", "Python", "Flask", "PostgreSQL", "Supabase", "SQLAlchemy", "Socket.IO", "JWT", "Tailwind CSS", "Docker"],
+    accent: "green",
+    tagline: "One platform for customers, sales and support",
+    architecture: ["React dashboards", "Flask REST APIs", "JWT and role-based access", "Supabase PostgreSQL", "Real-time notifications"],
+    problem: "Customer interactions, sales leads, support tickets and operations need a shared place to be tracked and managed.",
+    objective: "Build a CRM that brings customer, sales and support workflows together with role-based dashboards.",
+    development: "Implemented REST APIs with Flask, a responsive React frontend, PostgreSQL persistence through SQLAlchemy, JWT authentication and role-based access control. Added automated ticket routing by category and priority, real-time Socket.IO notifications, and lead conversion workflows.",
+    result: "A full-stack CRM with administrative analytics and CSV, Excel and PDF reporting.",
+    future: "Extend workflow automation and analytics as operational needs evolve."
   }
 ];
 
@@ -148,7 +163,7 @@ export function Projects() {
         const matchesTech = !highlightedTech || project.tags.some(tag => tag.toLowerCase().includes(highlightedTech));
         return (
         <motion.article id={`project-${project.number}`} key={project.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }} className={`project-row ${matchesTech ? "" : "is-dimmed"}`}>
-          <button type="button" onClick={() => setSelectedProject(project)} aria-label={`View ${project.title} case study`} className={`project-visual project-visual-${project.title === "FallEye" ? "falleye" : project.title === "DocuMind" ? "documind" : "mobile"}`}>
+          <button type="button" onClick={() => setSelectedProject(project)} aria-label={`View ${project.title} case study`} className={`project-visual project-visual-${project.title === "FallEye" ? "falleye" : project.title === "DocuMind" ? "documind" : project.title === "NEXUS CRM" ? "crm" : "mobile"}`}>
             <ProjectVisual project={project} />
           </button>
           <div className="project-copy">
@@ -201,9 +216,13 @@ function ProjectVisual({ project }: { project: Project }) {
     </div>;
   }
 
-  const stages = project.title === "DocuMind" ? ["PDF", "EXTRACT", "CHUNKS", "EMBED", "RETRIEVE", "ANSWER"] : ["DEVICE SPECS", "ML MODEL", "PRICE RANGE"];
+  const stages = project.title === "DocuMind"
+    ? ["PDF", "EXTRACT", "CHUNKS", "EMBED", "RETRIEVE", "ANSWER"]
+    : project.title === "NEXUS CRM"
+      ? ["CUSTOMERS", "SALES LEADS", "SUPPORT TICKETS", "OPERATIONS"]
+      : ["DEVICE SPECS", "ML MODEL", "PRICE RANGE"];
   return <div className="project-visual-content" role="img" aria-label={`${project.title} system flow`}>
-    <span className="visual-kicker">SYSTEM / {project.title === "DocuMind" ? "DOCUMENT RETRIEVAL" : "PRICE PREDICTION"}</span>
+    <span className="visual-kicker">SYSTEM / {project.title === "DocuMind" ? "DOCUMENT RETRIEVAL" : project.title === "NEXUS CRM" ? "CUSTOMER OPERATIONS" : "PRICE PREDICTION"}</span>
     <div className="flow-visual">
       {stages.map((stage, index) => <span key={stage} className="contents">
         <span className="flow-node">{stage}</span>{index < stages.length - 1 && <span className="flow-arrow" aria-hidden="true">→</span>}
