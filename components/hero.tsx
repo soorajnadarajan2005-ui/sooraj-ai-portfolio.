@@ -2,13 +2,11 @@
 
 import { motion } from "motion/react";
 import { ArrowDownRight, ArrowUpRight, Download } from "lucide-react";
-import { NeuralCore } from "@/components/neural-core";
 
 export function Hero() {
   return (
     <section id="top" className="hero-stage relative flex min-h-[100svh] flex-col justify-center overflow-hidden">
       <div className="hero-content section relative z-10">
-        <div className="hero-copy">
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="section-kicker mb-8">
           AI/ML Engineer · Python Developer
         </motion.p>
@@ -44,8 +42,6 @@ export function Hero() {
           </a>
           <span>Kochi, Kerala, India</span>
         </div>
-        </div>
-        <NeuralCore />
       </div>
     </section>
   );
