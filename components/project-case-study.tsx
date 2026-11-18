@@ -68,7 +68,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
             <Image
               src={project.image}
               alt={`${project.title} project screenshot`}
-              width={project.slug === "falleye" ? 1643 : project.slug === "documind" ? 801 : 816}
+              width={project.slug === "falleye" ? 1643 : project.slug === "doculens" ? 801 : 816}
               height={project.slug === "falleye" ? 477 : 412}
               sizes="(max-width: 700px) calc(100vw - 32px), 1160px"
             />

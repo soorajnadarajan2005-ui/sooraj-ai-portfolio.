@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { SpatialCard } from "@/components/spatial-card";
 import { projects, type Project } from "@/lib/projects";
 
 export function Projects() {
@@ -19,22 +20,24 @@ export function Projects() {
 
   return (
     <section id="projects" className="section">
-      <div className="mb-14 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+      <div className="projects-heading">
         <div>
           <p className="section-kicker">03 / Selected work</p>
-          <h2 className="section-title mt-4 text-5xl sm:text-6xl">Work, in context.</h2>
+          <h2 className="section-title mt-4 text-5xl sm:text-6xl">
+            Built to make an impact.
+          </h2>
         </div>
         <a
           href="https://github.com/soorajnadarajan2005-ui"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 border-b border-[var(--border)] pb-2 text-xs font-semibold uppercase tracking-[.08em] muted transition hover:border-[var(--accent)] hover:text-[var(--foreground)]"
+          className="projects-github-link"
         >
-          Browse GitHub <ArrowUpRight size={14} />
+          Browse GitHub <ArrowUpRight size={14} aria-hidden="true" />
         </a>
       </div>
 
-      <div className="project-list">
+      <div className="projects-grid">
         {projects.map((project) => {
           const matchesTech =
             !highlightedTech ||
@@ -46,40 +49,39 @@ export function Projects() {
               key={project.slug}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className={`project-row ${matchesTech ? "" : "is-dimmed"}`}
+              className={`project-card-wrap ${matchesTech ? "" : "is-dimmed"}`}
             >
-              <a
+              <SpatialCard
                 href={`/projects/${project.slug}`}
-                aria-label={`View ${project.title} case study`}
-                className={`project-visual project-visual-${project.slug}`}
+                ariaLabel={`View ${project.title} project case study`}
+                className={`project-card project-card-${project.slug}`}
               >
-                <ProjectVisual project={project} />
-              </a>
-              <div className="project-copy">
-                <p className="project-subtitle">
-                  {project.number} / {project.category}
-                </p>
-                <h3 className="project-title">{project.title}</h3>
-                <p className="muted mt-4 max-w-lg text-sm leading-7">
-                  {project.description}
-                </p>
-                <ul
-                  className="project-tags"
-                  aria-label={`${project.title} technologies`}
-                >
-                  {project.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-                <a
-                  href={`/projects/${project.slug}`}
-                  className="project-case-link"
-                >
-                  View case study <ArrowRight size={15} />
-                </a>
-              </div>
+                <div className="project-card-visual">
+                  <ProjectVisual project={project} />
+                  <span className="project-card-number">{project.number}</span>
+                  <span className="project-card-open" aria-hidden="true">
+                    <ArrowUpRight size={17} />
+                  </span>
+                </div>
+                <div className="project-card-copy">
+                  <p className="project-subtitle">{project.category}</p>
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <ul
+                    className="project-tags"
+                    aria-label={`${project.title} technologies`}
+                  >
+                    {project.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                  <span className="project-card-cta">
+                    Explore case study <ArrowRight size={15} aria-hidden="true" />
+                  </span>
+                </div>
+              </SpatialCard>
             </motion.article>
           );
         })}
@@ -95,9 +97,9 @@ function ProjectVisual({ project }: { project: Project }) {
         className="project-media-image"
         src={project.image}
         alt={`${project.title} project preview`}
-        width={project.slug === "falleye" ? 1643 : project.slug === "documind" ? 801 : 816}
+        width={project.slug === "falleye" ? 1643 : project.slug === "doculens" ? 801 : 816}
         height={project.slug === "falleye" ? 477 : 412}
-        sizes="(max-width: 700px) calc(100vw - 32px), 560px"
+        sizes="(max-width: 700px) calc(100vw - 32px), (max-width: 1050px) 50vw, 33vw"
         loading="lazy"
       />
     );
@@ -109,7 +111,7 @@ function ProjectVisual({ project }: { project: Project }) {
       role="img"
       aria-label={`Illustrative ${project.title} system flow, not a project screenshot`}
     >
-      <span className="visual-kicker">ILLUSTRATIVE SYSTEM FLOW</span>
+      <span className="visual-kicker">PROJECT SCOPE</span>
       <div className="flow-visual">
         {project.architecture.map((stage, index) => (
           <span key={stage} className="contents">

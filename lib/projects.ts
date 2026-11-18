@@ -49,16 +49,18 @@ export const projects: Project[] = [
       "Evaluate against representative footage, improve detection robustness, and test alert delivery.",
   },
   {
-    slug: "documind",
+    slug: "doculens",
     number: "02",
-    title: "DocuMind",
+    title: "DocuLens",
     category: "Generative AI / Retrieval-Augmented Generation",
-    subtitle: "PDF Intelligence / RAG Chatbot",
+    subtitle: "Multi-Format RAG Chatbot",
     description:
-      "A PDF question-answering application that uses retrieved document context to ground generated answers.",
+      "A document question-answering application that retrieves relevant source context to ground generated answers.",
     tags: ["Python", "FastAPI", "RAG", "Embeddings", "FAISS", "LLMs"],
     image: "/project-media/documind.png",
     githubUrl: "https://github.com/soorajnadarajan2005-ui/DocuMind-.git",
+    sourceNote:
+      "The linked source repository is named DocuMind and documents a FAISS-based PDF workflow. ChromaDB and multi-format ingestion are not verified in that repository.",
     architecture: [
       "PDF upload",
       "Text extraction",

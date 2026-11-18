@@ -4,7 +4,6 @@ import { About } from "@/components/about";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
 import { Workflow } from "@/components/workflow";
-import { Experience } from "@/components/experience";
 import { Education } from "@/components/education";
 import { GithubSection } from "@/components/github-section";
 import { ResumeCta } from "@/components/resume-cta";
@@ -24,7 +23,6 @@ export default function Home() {
         <Skills />
         <Projects />
         <Workflow />
-        <Experience />
         <Education />
         <GithubSection />
         <ResumeCta />

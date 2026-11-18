@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { MotionProvider } from "@/components/motion-provider";
+import { SpatialCanvas } from "@/components/spatial-canvas";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sooraj-ai-portfolio.vercel.app"),
@@ -41,6 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <SpatialCanvas />
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>

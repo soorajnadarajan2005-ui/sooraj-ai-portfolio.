@@ -8,7 +8,6 @@ const sectionLight: Record<string, [string, string]> = {
   projects: ["rgba(57, 111, 213, .085)", "rgba(135, 91, 201, .06)"],
   workflow: ["rgba(90, 135, 201, .07)", "rgba(107, 108, 188, .04)"],
   expertise: ["rgba(59, 116, 208, .075)", "rgba(122, 99, 197, .045)"],
-  experience: ["rgba(90, 135, 201, .07)", "rgba(107, 108, 188, .04)"],
   education: ["rgba(90, 135, 201, .07)", "rgba(107, 108, 188, .04)"],
   github: ["rgba(59, 116, 208, .075)", "rgba(122, 99, 197, .045)"],
   resume: ["rgba(59, 116, 208, .075)", "rgba(122, 99, 197, .045)"],
@@ -16,7 +15,7 @@ const sectionLight: Record<string, [string, string]> = {
   contact: ["rgba(190, 204, 231, .07)", "rgba(91, 129, 200, .045)"],
 };
 
-const lightTargets = ".project-visual, .hero-link, .main-nav-link, .ai-assistant-button";
+const lightTargets = ".project-card, .hero-link, .main-nav-link, .ai-assistant-button";
 
 export function GlobalLighting() {
   useEffect(() => {

@@ -10,7 +10,7 @@ const suggestions = [
   "What projects has Sooraj built?",
   "What technologies does Sooraj use?",
   "Tell me about FallEye.",
-  "Tell me about DocuMind.",
+  "Tell me about DocuLens.",
   "Tell me about NEXUS CRM.",
   "What did Sooraj study?",
   "Tell me about Sooraj's experience.",
@@ -26,8 +26,8 @@ function answerQuestion(question: string) {
   if (/falleye|fall detection|elder/.test(text)) {
     return "FallEye is a vision-based elderly fall detection system concept using Python, OpenCV, MediaPipe and Flask. It is designed to detect potential falls and surface alerts through a safety dashboard. No model accuracy figures are claimed.";
   }
-  if (/documind|pdf|rag|document/.test(text)) {
-    return "DocuMind is a FastAPI-based PDF intelligence application. It extracts document text, chunks it, creates embeddings, searches with FAISS and uses retrieved context to ground answers.";
+  if (/doculens|documind|pdf|rag|document/.test(text)) {
+    return "DocuLens is the portfolio name for the linked DocuMind repository: a FastAPI-based PDF question-answering application that extracts text, creates embeddings, searches with FAISS and uses retrieved context to ground answers.";
   }
   if (/nexus|crm|customer relationship|ticket routing|sales lead/.test(text)) {
     return "NEXUS CRM is a full-stack customer relationship platform with role-based React dashboards, Flask REST APIs, SQLAlchemy, Supabase PostgreSQL, ticket routing, sales leads, Socket.IO notifications and reporting workflows.";
@@ -39,7 +39,7 @@ function answerQuestion(question: string) {
     return "Sooraj's listed experience is as an AI/ML Engineering Intern at Linnk Academy India. Dates and responsibilities have not been provided.";
   }
   if (/project|built|portfolio/.test(text)) {
-    return "The portfolio features FallEye, a vision-based fall detection system; DocuMind, a document intelligence RAG application; and NEXUS CRM, a customer relationship and operations platform. Open Projects for the case studies.";
+    return "The portfolio features FallEye, DocuLens (linked to the DocuMind repository), and NEXUS CRM. Open Projects for the case studies.";
   }
   if (/skill|technolog|tool|stack/.test(text)) {
     return "Sooraj works with Python, JavaScript, TypeScript, Scikit-learn, Pandas, NumPy, RAG, embeddings, FAISS, FastAPI, Flask, React, PostgreSQL, Supabase, SQLAlchemy, Socket.IO, Docker and Git.";
