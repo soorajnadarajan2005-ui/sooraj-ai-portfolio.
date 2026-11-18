@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 import type { Project } from "@/lib/projects";
@@ -64,10 +65,12 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
         <h2 id="media-title">Project media</h2>
         {project.image ? (
           <figure className="case-study-media">
-            <img
+            <Image
               src={project.image}
               alt={`${project.title} project screenshot`}
-              loading="eager"
+              width={project.slug === "falleye" ? 1643 : project.slug === "documind" ? 801 : 816}
+              height={project.slug === "falleye" ? 477 : 412}
+              sizes="(max-width: 700px) calc(100vw - 32px), 1160px"
             />
           </figure>
         ) : (

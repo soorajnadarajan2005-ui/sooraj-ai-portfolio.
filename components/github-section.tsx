@@ -9,7 +9,7 @@ export function GithubSection() {
         <div>
           <p className="section-kicker">07 / GitHub</p>
           <h2 className="section-title mt-3 text-3xl font-semibold sm:text-4xl">Build in public.</h2>
-          <p className="muted mt-3 max-w-xl leading-7">Explore Sooraj&apos;s public GitHub profile. Individual repository links and verified repository details have not been added yet.</p>
+          <p className="muted mt-3 max-w-xl leading-7">Explore Sooraj&apos;s public GitHub profile and the source repositories behind the featured projects.</p>
           <div className="mt-5 inline-flex items-center gap-2 text-xs muted"><GitBranch size={15} className="text-[var(--accent)]" /> Project code and experiments</div>
         </div>
         <a href="https://github.com/soorajnadarajan2005-ui" target="_blank" rel="noreferrer" className="github-profile-button">

@@ -30,7 +30,7 @@ function answerQuestion(question: string) {
     return "DocuMind is a FastAPI-based PDF intelligence application. It extracts document text, chunks it, creates embeddings, searches with FAISS and uses retrieved context to ground answers.";
   }
   if (/nexus|crm|customer relationship|ticket routing|sales lead/.test(text)) {
-    return "The supplied NEXUS CRM brief describes a full-stack customer relationship platform with sales lead tracking, automated ticket routing, role-based dashboards, real-time notifications and administrative reporting. The source repository is not included here for verification.";
+    return "NEXUS CRM is a full-stack customer relationship platform with role-based React dashboards, Flask REST APIs, SQLAlchemy, Supabase PostgreSQL, ticket routing, sales leads, Socket.IO notifications and reporting workflows.";
   }
   if (/education|study|degree|university|college/.test(text)) {
     return "Sooraj completed a BSc in Information Technology through MG University in 2026 at Siena College of Professional Studies, Edakochi.";

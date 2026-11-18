@@ -13,15 +13,22 @@ const groups = [
 
 export function Skills() {
   const [selected, setSelected] = useState("");
+  const [pinned, setPinned] = useState("");
   const selectSkill = (skill: string) => {
     setSelected(skill);
     window.dispatchEvent(new CustomEvent("portfolio:tech", { detail: skill }));
   };
   const clearSkill = () => {
-    setSelected("");
-    window.dispatchEvent(new CustomEvent("portfolio:tech", { detail: "" }));
+    const active = pinned || "";
+    setSelected(active);
+    window.dispatchEvent(new CustomEvent("portfolio:tech", { detail: active }));
   };
-
+  const togglePinnedSkill = (skill: string) => {
+    const next = pinned === skill ? "" : skill;
+    setPinned(next);
+    setSelected(next);
+    window.dispatchEvent(new CustomEvent("portfolio:tech", { detail: next }));
+  };
   return <section id="expertise" className="section">
     <div className="mb-10 max-w-3xl">
       <p className="section-kicker">02 / Technical expertise</p>
@@ -30,10 +37,8 @@ export function Skills() {
     </div>
     <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.55 }} className="constellation-shell">
       <div className="constellation-lines" aria-hidden="true">
-        <span className="constellation-line line-a" />
-        <span className="constellation-line line-b" />
-        <span className="constellation-line line-c" />
-        <span className="constellation-line line-d" />
+        <span className="constellation-line line-a" /><span className="constellation-line line-b" />
+        <span className="constellation-line line-c" /><span className="constellation-line line-d" />
       </div>
       {groups.map((group, groupIndex) => (
         <div key={group.title} className={`constellation-group constellation-group-${groupIndex + 1}`}>
@@ -48,10 +53,8 @@ export function Skills() {
                 onMouseLeave={clearSkill}
                 onFocus={() => selectSkill(skill)}
                 onBlur={clearSkill}
-                onClick={() => selectSkill(skill)}
-              >
-                {skill}
-              </button>
+                onClick={() => togglePinnedSkill(skill)}
+              >{skill}</button>
             ))}
           </div>
         </div>

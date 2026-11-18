@@ -3,6 +3,7 @@ import "./globals.css";
 import { MotionProvider } from "@/components/motion-provider";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sooraj-ai-portfolio.vercel.app"),
   title: "Sooraj Nadarajan | AI/ML Engineer & Python Developer",
   description:
     "Sooraj Nadarajan is an AI/ML Engineer in Kochi, India, building practical applications with machine learning, generative AI, Python, and RAG.",

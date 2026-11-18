@@ -20,9 +20,6 @@ export type Project = {
   demoUrl?: string;
 };
 
-const verificationPlaceholder =
-  "Add verified implementation details and evidence from the source project before publishing.";
-
 export const projects: Project[] = [
   {
     slug: "falleye",
@@ -44,9 +41,10 @@ export const projects: Project[] = [
       "The current portfolio summary describes a Python and Flask prototype using OpenCV and MediaPipe for vision-based pose analysis, with a dashboard for alerts.",
     result:
       "A prototype concept for visual fall detection and alert presentation. It is not a certified medical monitoring system, and no accuracy figures are claimed.",
-    challenges: verificationPlaceholder,
+    challenges:
+      "Reliable pose tracking is sensitive to camera angle, lighting, occlusion, and motion blur. Alert logic must avoid repeated notifications.",
     testing:
-      "No dataset, benchmark, or measured evaluation results were provided. Add verified evaluation conditions and results from the source project.",
+      "The repository contains a running Flask prototype, but no published benchmark or measured accuracy dataset is included.",
     future:
       "Evaluate against representative footage, improve detection robustness, and test alert delivery.",
   },
@@ -78,9 +76,10 @@ export const projects: Project[] = [
       "The portfolio summary describes a RAG pipeline that extracts PDF text, splits it into chunks, creates embeddings, searches with FAISS, retrieves context, and generates an answer using an LLM.",
     result:
       "A document question-answering workflow intended to keep responses grounded in retrieved PDF content.",
-    challenges: verificationPlaceholder,
+    challenges:
+      "Document quality, chunk boundaries, embedding performance, and local Ollama availability can affect retrieval and answer quality.",
     testing:
-      "No evaluation dataset or measured answer-quality results were provided. Add verified test cases and evaluation results from the source project.",
+      "No published evaluation dataset or answer-quality benchmark is included in the repository.",
     future:
       "Add verified source citations and evaluate retrieval and answer quality against representative documents.",
   },
@@ -121,13 +120,12 @@ export const projects: Project[] = [
       "The supplied project brief describes Flask REST APIs, a responsive React frontend, PostgreSQL on Supabase accessed through SQLAlchemy, JWT authentication, role-based access control, ticket routing by category and priority, Socket.IO notifications, and lead conversion workflows.",
     result:
       "The supplied brief also describes administrative analytics and CSV, Excel, and PDF reporting. These details should be checked against the CRM source before publication.",
-    challenges: verificationPlaceholder,
+    challenges:
+      "The CRM combines role-based authorization, record visibility, live notifications, document uploads, and operational workflows; these boundaries require consistent enforcement.",
     testing:
-      "No test strategy, dataset, or measured results were provided. Add verified tests and evaluation details from the source project.",
+      "The repository includes backend API and business-logic tests, but no published usage benchmark or measured results are included.",
     future:
       "Document validated workflow behavior and identify further improvements from the source implementation.",
-    sourceNote:
-      "The CRM source repository was not included in this portfolio workspace. This summary is based on the project brief and should be verified against the implementation.",
   },
 ];
 

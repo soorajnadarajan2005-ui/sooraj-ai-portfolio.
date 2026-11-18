@@ -19,13 +19,13 @@ The portfolio features exactly three projects:
 - DocuMind — PDF question-answering application using RAG.
 - NEXUS CRM — customer relationship and operations platform.
 
-Each project has a case-study page at `/projects/<project-slug>`. Implementation notes that could not be verified from this portfolio workspace are explicitly marked for confirmation.
+Each project has a case-study page at `/projects/<project-slug>`. Project summaries distinguish implemented workflows from capabilities that have not yet been measured or verified publicly.
 
 ## Personal content
 
 Edit the components in `components/` to update the profile, skills, projects, experience, education, and contact details. Project content and case-study routes share data from `lib/projects.ts`.
 
-The experience entry intentionally leaves dates and responsibilities for confirmation. The NEXUS CRM summary is based on the supplied project brief; its source repository was not included here. Replace marked placeholders with verified information before publishing.
+The experience entry intentionally leaves dates and responsibilities for confirmation.
 
 ## Resume
 
@@ -37,7 +37,7 @@ The contact form uses `mailto:` and opens the visitor's email application. The s
 
 ## GitHub and social links
 
-The profile-level GitHub and LinkedIn links are maintained in the relevant components. Individual project repository and demo URLs have not been supplied, so none are presented as verified links.
+The profile-level GitHub and LinkedIn links are maintained in the relevant components. Each featured project includes its source repository link.
 
 ## Deploy
 

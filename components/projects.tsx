@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projects, type Project } from "@/lib/projects";
@@ -102,38 +103,37 @@ function ProjectVisual({ project }: { project: Project }) {
   if (project.image) {
     return (
       <div className={`project-media-wrap project-media-${project.slug}`}>
-        <img
-          className="project-media-image"
-          src={project.image}
-          alt={`${project.title} project preview`}
-          loading="eager"
-        />
-        {project.slug === "falleye" && (
-          <div className="technical-overlay falleye-overlay" aria-hidden="true">
-            <span className="scan-line" />
-            <span className="pose-point point-one" />
-            <span className="pose-point point-two" />
-            <span className="pose-point point-three" />
-            <span className="vision-status">POSE TRACKING</span>
-          </div>
-        )}
-        {project.slug === "documind" && (
-          <div className="technical-overlay documind-overlay" aria-hidden="true">
-            <span className="doc-chip chip-one">TEXT</span>
-            <span className="doc-chip chip-two">CHUNK</span>
-            <span className="doc-chip chip-three">VECTOR</span>
-            <span className="retrieval-pulse" />
-          </div>
-        )}
-        {project.slug === "nexus-crm" && (
-          <div className="technical-overlay nexus-overlay" aria-hidden="true">
-            <span className="crm-node crm-node-one" />
-            <span className="crm-node crm-node-two" />
-            <span className="crm-node crm-node-three" />
-            <span className="crm-flow" />
-            <span className="crm-status">WORKFLOW</span>
-          </div>
-        )}
+      <Image
+        className="project-media-image"
+        src={project.image}
+        alt={`${project.title} project preview`}
+        width={project.slug === "falleye" ? 1643 : project.slug === "documind" ? 801 : 816}
+        height={project.slug === "falleye" ? 477 : 412}
+        sizes="(max-width: 700px) calc(100vw - 32px), 560px"
+        loading="lazy"
+      />
+      {project.slug === "falleye" && (
+        <div className="technical-overlay falleye-overlay" aria-hidden="true">
+          <span className="scan-line" /><span className="pose-point point-one" />
+          <span className="pose-point point-two" /><span className="pose-point point-three" />
+          <span className="vision-status">POSE TRACKING</span>
+        </div>
+      )}
+      {project.slug === "documind" && (
+        <div className="technical-overlay documind-overlay" aria-hidden="true">
+          <span className="doc-chip chip-one">TEXT</span>
+          <span className="doc-chip chip-two">CHUNK</span>
+          <span className="doc-chip chip-three">VECTOR</span>
+          <span className="retrieval-pulse" />
+        </div>
+      )}
+      {project.slug === "nexus-crm" && (
+        <div className="technical-overlay nexus-overlay" aria-hidden="true">
+          <span className="crm-node crm-node-one" /><span className="crm-node crm-node-two" />
+          <span className="crm-node crm-node-three" /><span className="crm-flow" />
+          <span className="crm-status">WORKFLOW</span>
+        </div>
+      )}
       </div>
     );
   }
