@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { MotionProvider } from "@/components/motion-provider";
 
 export const metadata: Metadata = {
   title: "Sooraj Nadarajan | AI/ML Engineer & Python Developer",
@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

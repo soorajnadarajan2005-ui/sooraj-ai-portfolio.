@@ -1,10 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { useTheme } from "./theme-provider";
 
 const links = [
   { label: "Home", href: "#top" },
@@ -22,7 +21,6 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("top");
   const pathname = usePathname();
-  const { theme, toggle } = useTheme();
   const systemStatus = active === "projects" ? "BUILD MODE" : active === "contact" || active === "resume" ? "READY" : "ONLINE";
   const sectionHref = (href: string) => pathname === "/" ? href : `/${href}`;
 
@@ -44,12 +42,6 @@ export function Navbar() {
     };
   }, []);
 
-  const ThemeButton = () => (
-    <button onClick={toggle} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`} className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--surface)]/70 text-[var(--muted)] transition hover:text-[var(--foreground)]">
-      {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-    </button>
-  );
-
   return (
     <header className="fixed top-0 z-50 w-full px-5">
       <nav className={`mx-auto flex max-w-[1160px] items-center justify-between border-b py-4 transition-all duration-300 ${scrolled ? "border-[var(--border)] bg-[var(--background)]/92 backdrop-blur-md" : "border-transparent bg-transparent"}`} aria-label="Main navigation">
@@ -64,12 +56,10 @@ export function Navbar() {
               {label}
             </a>
           ))}
-          <ThemeButton />
           <span className="system-status">SYSTEM {systemStatus}</span>
         </div>
 
         <div className="flex items-center gap-2 xl:hidden">
-          <ThemeButton />
           <button onClick={() => setOpen(value => !value)} aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open} aria-controls="mobile-navigation" className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--surface)]/70 text-[var(--muted)]">
             {open ? <X size={17} /> : <Menu size={17} />}
           </button>

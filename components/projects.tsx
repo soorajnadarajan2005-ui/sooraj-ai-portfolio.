@@ -88,19 +88,14 @@ export function Projects() {
 }
 
 function ProjectVisual({ project }: { project: Project }) {
-  if (project.slug === "falleye") {
+  if (project.image) {
     return (
-      <div
-        className="project-visual-content"
-        role="img"
-        aria-label="Illustrative FallEye system flow, not a project screenshot"
-      >
-        <span className="visual-kicker">ILLUSTRATIVE SYSTEM FLOW</span>
-        <div className="vision-frame">
-          <span className="vision-person" />
-          <span className="vision-label">POSE ANALYSIS</span>
-        </div>
-      </div>
+      <img
+        className="project-media-image"
+        src={project.image}
+        alt={`${project.title} project preview`}
+        loading="eager"
+      />
     );
   }
 

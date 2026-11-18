@@ -62,11 +62,17 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
 
       <section className="case-study-section" aria-labelledby="media-title">
         <h2 id="media-title">Project media</h2>
-        <p>
-          No verified project screenshots were included in the portfolio
-          workspace. Add real screenshots here when available; the diagram
-          above is illustrative, not a product screenshot.
-        </p>
+        {project.image ? (
+          <figure className="case-study-media">
+            <img
+              src={project.image}
+              alt={`${project.title} project screenshot`}
+              loading="eager"
+            />
+          </figure>
+        ) : (
+          <p>No project screenshot is available.</p>
+        )}
       </section>
 
       <div className="case-study-links">

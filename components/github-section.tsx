@@ -12,7 +12,7 @@ export function GithubSection() {
           <p className="muted mt-3 max-w-xl leading-7">Explore Sooraj&apos;s public GitHub profile. Individual repository links and verified repository details have not been added yet.</p>
           <div className="mt-5 inline-flex items-center gap-2 text-xs muted"><GitBranch size={15} className="text-[var(--accent)]" /> Project code and experiments</div>
         </div>
-        <a href="https://github.com/soorajnadarajan2005-ui" target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--foreground)] px-5 py-3 text-sm font-semibold text-[var(--background)] transition hover:-translate-y-0.5">
+        <a href="https://github.com/soorajnadarajan2005-ui" target="_blank" rel="noreferrer" className="github-profile-button">
           <Github size={17} /> GitHub profile <ArrowUpRight size={15} />
         </a>
       </div>

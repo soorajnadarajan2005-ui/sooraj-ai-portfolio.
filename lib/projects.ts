@@ -7,6 +7,7 @@ export type Project = {
   description: string;
   tags: string[];
   architecture: string[];
+  image?: string;
   problem: string;
   objective: string;
   implementation: string;
@@ -33,6 +34,7 @@ export const projects: Project[] = [
       "A vision-based fall detection prototype that analyzes camera input and surfaces potential fall alerts through a safety dashboard.",
     tags: ["Python", "Flask", "OpenCV", "MediaPipe", "Computer Vision"],
     architecture: ["Camera input", "Pose landmarks", "Fall detection", "Dashboard alert"],
+    image: "/project-media/falleye.png",
     problem:
       "A potential fall may go unnoticed when an older adult is alone and unable to call for help.",
     objective:
@@ -56,6 +58,7 @@ export const projects: Project[] = [
     description:
       "A PDF question-answering application that uses retrieved document context to ground generated answers.",
     tags: ["Python", "FastAPI", "RAG", "Embeddings", "FAISS", "LLMs"],
+    image: "/project-media/documind.png",
     architecture: [
       "PDF upload",
       "Text extraction",
@@ -99,6 +102,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "Docker",
     ],
+    image: "/project-media/nexus-crm.png",
     architecture: [
       "React dashboards",
       "Flask REST APIs",
