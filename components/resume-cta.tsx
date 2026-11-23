@@ -25,7 +25,7 @@ export function ResumeCta() {
               <div><h3>EDUCATION</h3><p>BSc Information Technology<br />MG University · 2026</p></div>
               <div><h3>FOCUS</h3><p>Computer vision, RAG, NLP and full-stack AI applications.</p></div>
               <div><h3>EXPERIENCE</h3><p>AI/ML Engineering Intern · Linnk Academy India<br />Dates and responsibilities to confirm.</p></div>
-              <div><h3>SELECTED PROJECTS</h3><p>NEXUS CRM · DocuMind · FallEye</p></div>
+              <div><h3>SELECTED PROJECTS</h3><p>FallEye · DocuMind · NEXUS CRM · Personal Journal Analyzer · CodePilot AI</p></div>
             </div>
             <div className="mt-6 flex flex-wrap gap-6">
               <a href="/Sooraj-Nadarajan-Resume.pdf" target="_blank" rel="noreferrer" className="hero-link">Open resume <ExternalLink size={15} /></a>

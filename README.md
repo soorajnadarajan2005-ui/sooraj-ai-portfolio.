@@ -13,13 +13,15 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Featured projects
 
-The portfolio features exactly three projects:
+The portfolio features exactly five projects:
 
 - FallEye — computer-vision fall detection prototype.
 - DocuMind — PDF question-answering application using RAG.
 - NEXUS CRM — customer relationship and operations platform.
+- Personal Journal Analyzer — CLI-based private journal search and RAG question answering with date citations.
+- CodePilot AI — local-first software engineering workspace with semantic code search, local LLM chat, and approval-gated code fixes.
 
-Each project has a case-study page at `/projects/<project-slug>`. Project summaries distinguish implemented workflows from capabilities that have not yet been measured or verified publicly.
+Each project has a case-study page at `/projects/<project-slug>`. Project summaries distinguish implemented workflows from capabilities that have not yet been measured or verified publicly. Personal Journal Analyzer has no verified repository link yet.
 
 ## Personal content
 
@@ -37,7 +39,7 @@ The contact form uses `mailto:` and opens the visitor's email application. The s
 
 ## GitHub and social links
 
-The profile-level GitHub and LinkedIn links are maintained in the relevant components. Each featured project includes its source repository link.
+The profile-level GitHub and LinkedIn links are maintained in the relevant components. Project source links are shown only when configured.
 
 ## Deploy
 

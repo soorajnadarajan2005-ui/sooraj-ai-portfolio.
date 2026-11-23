@@ -60,15 +60,30 @@ export function Projects() {
               >
                 <div className="project-card-visual">
                   <ProjectVisual project={project} />
+                  {project.slug === "personal-journal-analyzer" && (
+                    <span className="project-visual-disclaimer">
+                      CONCEPT ART · CLI PROJECT · RETRIEVED EXCERPTS SENT TO CLAUDE
+                    </span>
+                  )}
                   <span className="project-card-number">{project.number}</span>
                   <span className="project-card-open" aria-hidden="true">
                     <ArrowUpRight size={17} />
                   </span>
                 </div>
                 <div className="project-card-copy">
-                  <p className="project-subtitle">{project.category}</p>
+                  <p className="project-subtitle">{project.subtitle}</p>
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-description">{project.description}</p>
+                  {project.highlights && (
+                    <ul
+                      className="project-highlight-list"
+                      aria-label={`${project.title} feature highlights`}
+                    >
+                      {project.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                  )}
                   <ul
                     className="project-tags"
                     aria-label={`${project.title} technologies`}
@@ -96,9 +111,33 @@ function ProjectVisual({ project }: { project: Project }) {
       <Image
         className="project-media-image"
         src={project.image}
-        alt={`${project.title} project preview`}
-        width={project.slug === "falleye" ? 1643 : project.slug === "doculens" ? 801 : 816}
-        height={project.slug === "falleye" ? 477 : 412}
+        alt={
+          project.slug === "personal-journal-analyzer"
+            ? "Concept artwork, not the actual interface; Personal Journal Analyzer is CLI-based and sends retrieved excerpts to Claude"
+            : project.slug === "codepilot-ai"
+              ? "Illustrative CodePilot AI workspace concept artwork, not a verified application screenshot"
+              : `${project.title} project preview`
+        }
+        width={
+          project.slug === "falleye"
+            ? 1643
+            : project.slug === "doculens"
+              ? 801
+              : project.slug === "personal-journal-analyzer"
+                ? 1365
+                : project.slug === "codepilot-ai"
+                  ? 1365
+                : 816
+        }
+        height={
+          project.slug === "falleye"
+            ? 477
+            : project.slug === "personal-journal-analyzer"
+              ? 768
+              : project.slug === "codepilot-ai"
+                ? 768
+              : 412
+        }
         sizes="(max-width: 700px) calc(100vw - 32px), (max-width: 1050px) 50vw, 33vw"
         loading="lazy"
       />
