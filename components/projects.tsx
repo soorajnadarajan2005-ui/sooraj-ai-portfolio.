@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { motion } from "motion/react";
+import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { SpatialCard } from "@/components/spatial-card";
 import { projects, type Project } from "@/lib/projects";
 
 export function Projects() {
@@ -37,132 +35,46 @@ export function Projects() {
         </a>
       </div>
 
-      <div className="projects-grid">
+      <div className="skills-grid projects-grid">
         {projects.map((project) => {
           const matchesTech =
             !highlightedTech ||
             project.tags.some((tag) => tag.toLowerCase().includes(highlightedTech));
 
           return (
-            <motion.article
+            <Link
               id={`project-${project.number}`}
               key={project.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className={`project-card-wrap ${matchesTech ? "" : "is-dimmed"}`}
+              href={`/projects/${project.slug}`}
+              aria-label={`Read the ${project.title} project details`}
+              className={`skill-tile project-tile project-card ${
+                matchesTech ? "" : "is-dimmed"
+              }`}
             >
-              <SpatialCard
-                href={`/projects/${project.slug}`}
-                ariaLabel={`View ${project.title} project case study`}
-                className={`project-card project-card-${project.slug}`}
+              <div className="skill-tile-heading">
+                <span>{project.number} / {project.category}</span>
+                <span className="skill-tile-mark" aria-hidden="true">
+                  <ArrowUpRight size={17} />
+                </span>
+              </div>
+              <h3>{project.title}</h3>
+              <p className="project-tile-subtitle">{project.subtitle}</p>
+              <p>{project.description}</p>
+              <ul
+                className="skill-pills project-tech-list"
+                aria-label={`${project.title} technologies`}
               >
-                <div className="project-card-visual">
-                  <ProjectVisual project={project} />
-                  {project.slug === "personal-journal-analyzer" && (
-                    <span className="project-visual-disclaimer">
-                      CONCEPT ART · CLI PROJECT · RETRIEVED EXCERPTS SENT TO CLAUDE
-                    </span>
-                  )}
-                  <span className="project-card-number">{project.number}</span>
-                  <span className="project-card-open" aria-hidden="true">
-                    <ArrowUpRight size={17} />
-                  </span>
-                </div>
-                <div className="project-card-copy">
-                  <p className="project-subtitle">{project.subtitle}</p>
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                  {project.highlights && (
-                    <ul
-                      className="project-highlight-list"
-                      aria-label={`${project.title} feature highlights`}
-                    >
-                      {project.highlights.map((highlight) => (
-                        <li key={highlight}>{highlight}</li>
-                      ))}
-                    </ul>
-                  )}
-                  <ul
-                    className="project-tags"
-                    aria-label={`${project.title} technologies`}
-                  >
-                    {project.tags.map((tag) => (
-                      <li key={tag}>{tag}</li>
-                    ))}
-                  </ul>
-                  <span className="project-card-cta">
-                    Explore case study <ArrowRight size={15} aria-hidden="true" />
-                  </span>
-                </div>
-              </SpatialCard>
-            </motion.article>
+                {project.tags.slice(0, 3).map((tag) => (
+                  <li key={tag} className="skill-pill">{tag}</li>
+                ))}
+              </ul>
+              <span className="project-card-cta">
+                View project details <ArrowRight size={15} aria-hidden="true" />
+              </span>
+            </Link>
           );
         })}
       </div>
     </section>
-  );
-}
-
-function ProjectVisual({ project }: { project: Project }) {
-  if (project.image) {
-    return (
-      <Image
-        className="project-media-image"
-        src={project.image}
-        alt={
-          project.slug === "personal-journal-analyzer"
-            ? "Concept artwork, not the actual interface; Personal Journal Analyzer is CLI-based and sends retrieved excerpts to Claude"
-            : project.slug === "codepilot-ai"
-              ? "Illustrative CodePilot AI workspace concept artwork, not a verified application screenshot"
-              : `${project.title} project preview`
-        }
-        width={
-          project.slug === "falleye"
-            ? 1643
-            : project.slug === "doculens"
-              ? 801
-              : project.slug === "personal-journal-analyzer"
-                ? 1365
-                : project.slug === "codepilot-ai"
-                  ? 1365
-                : 816
-        }
-        height={
-          project.slug === "falleye"
-            ? 477
-            : project.slug === "personal-journal-analyzer"
-              ? 768
-              : project.slug === "codepilot-ai"
-                ? 768
-              : 412
-        }
-        sizes="(max-width: 700px) calc(100vw - 32px), (max-width: 1050px) 50vw, 33vw"
-        loading="lazy"
-      />
-    );
-  }
-
-  return (
-    <div
-      className="project-visual-content"
-      role="img"
-      aria-label={`Illustrative ${project.title} system flow, not a project screenshot`}
-    >
-      <span className="visual-kicker">PROJECT SCOPE</span>
-      <div className="flow-visual">
-        {project.architecture.map((stage, index) => (
-          <span key={stage} className="contents">
-            <span className="flow-node">{stage}</span>
-            {index < project.architecture.length - 1 && (
-              <span className="flow-arrow" aria-hidden="true">
-                →
-              </span>
-            )}
-          </span>
-        ))}
-      </div>
-    </div>
   );
 }

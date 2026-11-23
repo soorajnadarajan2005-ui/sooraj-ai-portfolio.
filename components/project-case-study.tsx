@@ -46,6 +46,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
             content={project.caseStudy.overview}
           />
           <CaseStudySection title="Problem" content={project.problem} />
+          <CaseStudySection title="Objective" content={project.objective} />
           <CaseStudySection
             title="Solution"
             content={project.caseStudy.solution}
@@ -64,6 +65,10 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
               ))}
             </ol>
           </CaseStudySection>
+          <CaseStudySection
+            title="Implementation"
+            content={project.implementation}
+          />
           <CaseStudySection title="How it Works">
             <ol className="case-study-steps">
               {project.caseStudy.howItWorks.map((step) => (
